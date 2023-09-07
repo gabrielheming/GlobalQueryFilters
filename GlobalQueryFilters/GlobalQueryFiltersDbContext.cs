@@ -58,6 +58,6 @@ public class GlobalQueryFiltersDbContext : DbContext
             IsDeleted = true,
         });
 
-        modelBuilder.Entity<Post>().HasQueryFilter(_ => !_.IsDeleted);
+        modelBuilder.Entity<Post>().HasQueryFilter(_ => !_.IsDeleted && _.PublishOn < DateTime.Now);
     }
 }
