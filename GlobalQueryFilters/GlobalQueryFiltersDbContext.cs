@@ -57,5 +57,7 @@ public class GlobalQueryFiltersDbContext : DbContext
             PublishOn = DateTime.Parse("2023-09-01"),
             IsDeleted = true,
         });
+
+        modelBuilder.Entity<Post>().HasQueryFilter(_ => !_.IsDeleted);
     }
 }
